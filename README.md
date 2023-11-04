@@ -13,7 +13,7 @@ Now, rename the template repo using your registered project ID.
 ## Default repo directory and subdirectory structure
 Use the default standardized folder structure unless there is an explicit reason to do something different!
 
-This standardized structure is my own, modified and inspired from the following: [Alex Douglas::Setting up a reproducible project in R](https://alexd106.github.io/intro2R/project_setup.html), [Ties de Kok::How to keep your research projects organized: folder structure](https://towardsdatascience.com/how-to-keep-your-research-projects-organized-part-1-folder-structure-10bd56034d3a), [Kenyon White::ProjectTemplate](https://github.com/KentonWhite/ProjectTemplate), [Project Template](http://projecttemplate.net/index.html), [Anna Krystalli::Projects in R Studio](http://projecttemplate.net/index.html) and [^1].
+This standardized structure is my own, modified and inspired from the following: [^1, ^2] [Ties de Kok::How to keep your research projects organized: folder structure](https://towardsdatascience.com/how-to-keep-your-research-projects-organized-part-1-folder-structure-10bd56034d3a), [Kenyon White::ProjectTemplate](https://github.com/KentonWhite/ProjectTemplate), [Project Template](http://projecttemplate.net/index.html), [Anna Krystalli::Projects in R Studio](http://projecttemplate.net/index.html) and [^1].
 
 -   ./M09-permafrost-table-id
     -   /00-data-raw
@@ -119,3 +119,4 @@ A readme is a living document. You should begin any project with a draft readme,
 This is a running list of TODOs - actually this shouldn't be a thing. You should use GitHub Issues to track this? Not sure need to look into this more.
 
 [^1]: [Alex Douglas::Setting up a reproducible project in R](https://alexd106.github.io/intro2R/project_setup.html)
+[^2]: [Alex Douglas::Setting up a reproducible project in R](https://alexd106.github.io/intro2R/project_setup.html)
