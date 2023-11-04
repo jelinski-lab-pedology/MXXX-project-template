@@ -85,9 +85,9 @@ The idea for this folder comes from Ties de Kok[^2] and I like it. Every script 
 
 > *02_pipeline/sub-folder/out* contains files that you save with the intention of loading them in a future code file. These are usually the “end-products” of the current code file.
 
-*02_pipeline/sub-folder/store* contains files that you save with the intention of loading them in the current code file. This is, for example, used in scenarios where it takes a while to run parts of your code and to avoid having to re-run these parts every time you might want to intermittently save the progress of your generated data to the store folder.
+> *02_pipeline/sub-folder/store* contains files that you save with the intention of loading them in the current code file. This is, for example, used in scenarios where it takes a while to run parts of your code and to avoid having to re-run these parts every time you might want to intermittently save the progress of your generated data to the store folder.
 
-*02_pipeline/sub-folder/tmp* contains files that you save for inspection purposes or some other temporary reason. The basic principle is that you should not have to worry about anything in the tmp folder being deleted as it only serves a temporary purpose.
+> *02_pipeline/sub-folder/tmp* contains files that you save for inspection purposes or some other temporary reason. The basic principle is that you should not have to worry about anything in the tmp folder being deleted as it only serves a temporary purpose.
 
 ### /03-output
 This folder contains final, polished figures and tables or other products that will go in the manuscript. Note - although the /06-manuscript folder has subfolders for tables and figures, these are not necessarily the same thing. Any figures and tables in /03-output are generated from your code and source data. It is likely/possible that you may also end up with manuscript figures and tables that are not generated from your source data (conceptual figures, logic models, etc).
