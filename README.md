@@ -31,20 +31,20 @@ This standardized structure is my own, modified and inspired from many excellent
     -   /04-project-cache
     -   /04-project-temp
     -   /05-manuscript
-        -   /drafts
-        -   /submitted
-        -   /final-and-proofs
-        -   /figures
-        -   /tables
-        -   /refs
+        -   /a-drafts
+        -   /b-submitted
+        -   /c-final-and-proofs
+        -   /d-figures
+        -   /e-tables
+        -   /f-refs
     -   /06-presentations
     -   /07-log
         -   /analysis-log
         -   /writing-log
     -   /08-archive
     -   /docs
-    -   \[readme.txt\]
-    -   \[TODOs.txt\]
+    -   \[readme.md\]
+    -   \[TODOs.md\]
     -   \[project-metadata.json\]
 
 *Note that what I dodn't use here was -lib or -libs and -tests*
@@ -77,7 +77,7 @@ This folder is the sink where all of your post-processed data will live. It also
 
 ### /01-code
 
-This folder contains all of your source code and R scripts that you use to conduct your data processing and analysis. *Note link to how to actually write and breakdown and organize scripts and analysis in projects - this can be in your R style guide or as a separate section - talk about sequential numbering, a master script, functions script, global script, readme, and how to renumber or keep your growing scripts squared away.* This folder should always contain a .Rproj file to initialize the environment for running your R scripts. **NOTE: even though this contains a .Rproj file, you should always use the here::here function in the [here package in R](https://here.r-lib.org/) when referencing file locations in your project repo - there are excellent reasons for using both .Rproj and here::here - when combined these are a powerful way to guarantee there won't be any issues with other users running your code due to directory issues. [Malcom Barrett](https://www.rstudio.com/authors/malcolm-barrett/) gave an an excellent talk at the [useR! 2020 conference](https://user2020.r-project.org/program/contributed/) entitled ["Why use the *here* package when you're already using projects?"](https://m.youtube.com/watch?v=QYrdsjBvZN4). The .Rproj file contained in this tenplate is pre-configured to start with a *completely clean workspace EVERY TIME* by selecting in *Project Options > General* "Restore .RData into workspace at startup" = NO and "Save workspace to .RData on exit" = NO. These two options combined will also ensure that others running your code (or even you at a later date) don't experience errors or conflictions due to workspace-specific background[^1] - this is often the cause of the following issue: "I swear...my code worked the last time I ran it and I didn't change anything!".
+This folder contains all of your source code and R scripts that you use to conduct your data processing and analysis. *Note link to how to actually write and breakdown and organize scripts and analysis in projects - this can be in your R style guide or as a separate section - talk about sequential numbering, a master script, functions script, global script, readme, and how to renumber or keep your growing scripts squared away.* This folder should always contain a .Rproj file to initialize the environment for running your R scripts. **NOTE: even though this contains a .Rproj file, you should always use the here::here function in the [here package in R](https://here.r-lib.org/) when referencing file locations in your project repo - there are excellent reasons for using both .Rproj and here::here - when combined these are a powerful way to guarantee there won't be any issues with other users running your code due to directory issues. [Malcom Barrett](https://www.rstudio.com/authors/malcolm-barrett/) gave an an excellent talk at the [useR! 2020 conference](https://user2020.r-project.org/program/contributed/) entitled ["Why use the *here* package when you're already using projects?"](https://m.youtube.com/watch?v=QYrdsjBvZN4). The .Rproj file contained in this tenplate is pre-configured to start with a *completely clean workspace EVERY TIME* by selecting in *Project Options > General* "Restore .RData into workspace at startup" = NO and "Save workspace to .RData on exit" = NO, "Disable .Pprofile execution on session start/resume" = CHECKED, "Quit child processes on exit" = CHECKED. These two options combined will also ensure that others running your code (or even you at a later date) don't experience errors or conflictions due to workspace-specific background[^1] - this is often the cause of the following issue: "I swear...my code worked the last time I ran it and I didn't change anything!".
 
 ### /02-pipeline
 
@@ -120,7 +120,7 @@ This folder contains anything that is not relevant to the current workflow but t
 
 If you choose to create a Quarto e-book to consolidate your metadata and readmes as well as project workflow and potentially manuscript, all relevant files should go in this subdirectory. More information on generating an html book from separate markdown files *here*. NOTE - the only way to get GitHub Pages to find the files and render the htmls together is to have them in a /docs subdirectory. There is no other options currently. That is why /docs doesn't have a number before it.
 
-### readme.txt
+### readme.md
 
 This is arguably one of the most important features of your entire project. The readme should always be in plain text .txt format so that anyone on any system can read it. Spending time on your readme file is extremely important:
 
@@ -135,7 +135,7 @@ This is arguably one of the most important features of your entire project. The 
 
 A readme is a living document. You should begin any project with a draft readme, which, provided you use this workflow and file structure can be mostly copied from a suggested template located in this section. However, as your project grows and changes, your readme should be updated. Be as thorough as possible. Note that this is a project level readme. Although not required, you should strongly consider including sub readmes at within multipl subfolders where necessary. Conversely, you can create a project level book in Quarto that contains all readmes and documentation (see section X). *More information on how to use and write a readme in section X*.
 
-### TODOs.txt
+### TODOs.md
 
 This is a running list of TODOs - actually this shouldn't be a thing. You should use GitHub Issues to track this? Not sure need to look into this more.
 
