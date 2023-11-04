@@ -13,9 +13,9 @@ Now, rename the template repo using your registered project ID.
 ## Default repo directory and subdirectory structure
 Use the default standardized folder structure unless there is an explicit reason to do something different!
 
-This standardized structure is my own, modified and inspired from the following: [^1][^2] [Ties de Kok::How to keep your research projects organized: folder structure](https://towardsdatascience.com/how-to-keep-your-research-projects-organized-part-1-folder-structure-10bd56034d3a), [Kenyon White::ProjectTemplate](https://github.com/KentonWhite/ProjectTemplate), [Project Template](http://projecttemplate.net/index.html), [Anna Krystalli::Projects in R Studio](http://projecttemplate.net/index.html) and [^1].
+This standardized structure is my own, modified and inspired from many excellent sources [^1][^2][^3][^4][^5]. This is likely a living template and will change/improve as we adapt to diverse projects. Here is an example of the template repo structure for an arbitrary project [M009-jelinski-permafrost-id].
 
--   ./M09-permafrost-table-id
+-   ./M009-jelinski-permafrost-table-id
     -   /00-data-raw
     -   /01-data
     -   /02-src
@@ -119,4 +119,7 @@ A readme is a living document. You should begin any project with a draft readme,
 This is a running list of TODOs - actually this shouldn't be a thing. You should use GitHub Issues to track this? Not sure need to look into this more.
 
 [^1]: [Alex Douglas::Setting up a reproducible project in R](https://alexd106.github.io/intro2R/project_setup.html)
-[^2]: [Alex Douglas::Setting up a reproducible project in R](https://alexd106.github.io/intro2R/project_setup.html)
+[^2]: [Ties de Kok::How to keep your research projects organized: folder structure](https://towardsdatascience.com/how-to-keep-your-research-projects-organized-part-1-folder-structure-10bd56034d3a)
+[^3]: [Kenyon White::ProjectTemplate](https://github.com/KentonWhite/ProjectTemplate)
+[^4]: [Project Template](http://projecttemplate.net/index.html)
+[^5]: [Anna Krystalli::Projects in R Studio](http://projecttemplate.net/index.html)
