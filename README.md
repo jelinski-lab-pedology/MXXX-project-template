@@ -75,19 +75,23 @@ This folder is the sink where all of your post-processed data will live. It also
 -   Spatial vector data (points, lines or polygons) should be in [OGC geopackage](https://en.wikipedia.org/wiki/GeoPackage) format.
 -   Spatial raster data should be in [GeoTIFF](https://en.wikipedia.org/wiki/GeoTIFF) format.
 
-### /01-code
+### /01-scripts
 
 This folder contains all of your source code and R scripts that you use to conduct your data processing and analysis. *Note link to how to actually write and breakdown and organize scripts and analysis in projects - this can be in your R style guide or as a separate section - talk about sequential numbering, a master script, functions script, global script, readme, and how to renumber or keep your growing scripts squared away.* This folder should always contain a .Rproj file to initialize the environment for running your R scripts. **NOTE: even though this contains a .Rproj file, you should always use the here::here function in the [here package in R](https://here.r-lib.org/) when referencing file locations in your project repo - there are excellent reasons for using both .Rproj and here::here - when combined these are a powerful way to guarantee there won't be any issues with other users running your code due to directory issues. [Malcom Barrett](https://www.rstudio.com/authors/malcolm-barrett/) gave an an excellent talk at the [useR! 2020 conference](https://user2020.r-project.org/program/contributed/) entitled ["Why use the *here* package when you're already using projects?"](https://m.youtube.com/watch?v=QYrdsjBvZN4). The .Rproj file contained in this tenplate is pre-configured to start with a *completely clean workspace EVERY TIME* by selecting in *Project Options > General* "Restore .RData into workspace at startup" = NO and "Save workspace to .RData on exit" = NO, "Disable .Pprofile execution on session start/resume" = CHECKED, "Quit child processes on exit" = CHECKED. These two options combined will also ensure that others running your code (or even you at a later date) don't experience errors or conflictions due to workspace-specific background[^1] - this is often the cause of the following issue: "I swear...my code worked the last time I ran it and I didn't change anything!".
 
-### /02-pipeline
+### /02-markdowns
 
-The idea for this folder comes from Ties de Kok[^2] and I like it. Every script file in 01-code has a subfolder in 02-pipeline. Within each subfolder are three other directories: *tmp*, *store*, and *out*. Per Ties[^2]:
+The idea for this folder comes from the pipeline subfolder idea from Ties de Kok[^2]. Ties suggests that every script file in 01-code has a subfolder in a 02-pipeline subflder. Within each subfolder are three other directories: *tmp*, *store*, and *out*. Per Ties[^2]:
 
 > *02_pipeline/sub-folder/out* contains files that you save with the intention of loading them in a future code file. These are usually the “end-products” of the current code file.
 
 > *02_pipeline/sub-folder/store* contains files that you save with the intention of loading them in the current code file. This is, for example, used in scenarios where it takes a while to run parts of your code and to avoid having to re-run these parts every time you might want to intermittently save the progress of your generated data to the store folder.
 
 > *02_pipeline/sub-folder/tmp* contains files that you save for inspection purposes or some other temporary reason. The basic principle is that you should not have to worry about anything in the tmp folder being deleted as it only serves a temporary purpose.
+
+I really like this idea, however in reflecting think that a similar thing can be accomplished with markdown files and/or a quarto ebook. I want to keep the code folder clean and just R scripts (don't want to junk it up with markdowns), so I actually think the best solution is to have a separate folder for markdowns. Note that these markdowns can then be used as inputs to build an ebook with Quarto and display as a GitHub Pages website.
+
+So, this folder is to store markdowns from the individual scripts, or from groups of scripts. NOTE: NEVER EVER copy and paste code from R scripts to markdowns - the potential for error is just too high. Instead, call R scripts within the markdowns[^7][^8].
 
 ### /03-output
 This folder contains final, polished figures and tables or other products that will go in the manuscript. Note - although the /06-manuscript folder has subfolders for tables and figures, these are not necessarily the same thing. Any figures and tables in /03-output are generated from your code and source data. It is likely/possible that you may also end up with manuscript figures and tables that are not generated from your source data (conceptual figures, logic models, etc).
@@ -116,6 +120,15 @@ This folder contains logs related to your project, specifically your analysis lo
 
 This folder contains anything that is not relevant to the current workflow but that you are not ready to delete permanently *yet*. Items can be moved to the archive folder at any time. Consider including in git-ignore.
 
+### /09-metadata
+
+This folder contains all metadata files and metadata products.
+- MXXX-project-name-metadata.json: This is your metadata file for the entire project. This metadata file should be formatted according to our general conventions on metadata *here*.
+- MXXX-project-name-metadata.html: This is the .html file generated from dataspice
+-/csvs: this is a subdirectory to contain foundational .csv files used to build the .json and html using the [*dataspice*](https://cran.r-project.org/web/packages/dataspice/index.html) package [^9].
+
+This is your metadata file for the entire project (note that all datasets should also have associated metadata files as well in the 00-data directory. This metadata file should be formatted according to our general conventions on metadata *here*.
+
 ### /docs
 
 If you choose to create a Quarto e-book to consolidate your metadata and readmes as well as project workflow and potentially manuscript, all relevant files should go in this subdirectory. More information on generating an html book from separate markdown files *here*. NOTE - the only way to get GitHub Pages to find the files and render the htmls together is to have them in a /docs subdirectory. There is no other options currently. That is why /docs doesn't have a number before it.
@@ -139,13 +152,12 @@ A readme is a living document. You should begin any project with a draft readme,
 
 This is a running list of TODOs - actually this shouldn't be a thing. You should use GitHub Issues to track this? Not sure need to look into this more.
 
-### project-metadata.json
-
-This is your metadata file for the entire project (note that all datasets should also have associated metadata files as well in the 00-data directory. This metadata file should be formatted according to our general conventions on metadata *here*.
-
 [^1]: [Alex Douglas::Setting up a reproducible project in R](https://alexd106.github.io/intro2R/project_setup.html)
 [^2]: [Ties de Kok::How to keep your research projects organized: folder structure](https://towardsdatascience.com/how-to-keep-your-research-projects-organized-part-1-folder-structure-10bd56034d3a)
 [^3]: [Kenyon White::ProjectTemplate](https://github.com/KentonWhite/ProjectTemplate)
 [^4]: [Project Template](http://projecttemplate.net/index.html)
 [^5]: [Anna Krystalli::Projects in R Studio](http://projecttemplate.net/index.html)
 [^6]: [Matt Dray & Anna De Palma - rostrum.blog::A GitHub repo template for R analysis](https://www.rostrum.blog/posts/2019-06-11-r-repo-template/)
+[^7]: [Steve Shu::What is the best workflow for a new R user?](https://www.reddit.com/r/RStudio/comments/v8g8kf/what_is_best_workflow_for_new_r_user/)
+[^8]: [Thaufas::Using Code Chunks in R Markdown](https://rpubs.com/thaufas/450838)
+[^9]: [Anna Krystalli::Dataspice Tutorial](https://annakrystalli.me/dataspice-tutorial/)
